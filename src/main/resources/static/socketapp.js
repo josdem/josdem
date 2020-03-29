@@ -28,12 +28,12 @@ function disconnect() {
 }
 
 function sendFormData() {
-    var data = JSON.stringify({'data': $("#name").val() + "," + $("#complaint").val()})
+    var data = JSON.stringify({'data': $("#name").val() + "," + $("#message").val()})
     ws.send(data);
 }
 
 function showFeedbacks(message) {
-    $("#feedbacks").append("<tr><td><em> " + message + "</em></td></tr>");
+    $("#feedback").append("<tr><td><em> " + message + "</em></td></tr>");
 }
 
 $(function () {
