@@ -11,7 +11,7 @@ public class HotlineWebSocketHandler implements WebSocketHandler {
 
   @Override
   public Mono<Void> handle(WebSocketSession session) {
-    session.receive().map(WebSocketMessage::getPayload);
-    return null;
+    return session.send(
+        session.receive().map(WebSocketMessage::getPayloadAsText).map(session::textMessage));
   }
 }

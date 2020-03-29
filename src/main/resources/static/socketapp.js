@@ -12,7 +12,7 @@ function setConnected(connected) {
 }
 
 function connect() {
-    ws = new WebSocket('ws://localhost:8085/ch12-websocket/data');
+    ws = new WebSocket('ws://localhost:8080/channel');
     ws.onmessage = function(data){
         showFeedbacks(data.data);
     }
