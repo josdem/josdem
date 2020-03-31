@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Websocket Client</title>
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <link href="./main.css" rel="stylesheet">
+    <script src="./jquery-1.10.2.min.js"></script>
+    <script src="./chat-boot-client.js"></script>
+</head>
+<body>
+<noscript>
+    <h2>This server is not supporting websocket</h2>
+</noscript>
+<div id="main-content" class="container">
+    <div class="row">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="connect">Websocket Connection:</label>
+                <button id="connect" class="btn btn-success" type="submit">Connect</button>
+                <button id="disconnect" class="btn btn-danger" type="submit" disabled="disabled">Disconnect
+                </button>
+            </div>
+        </form>
+        <br/><br/>
+        <form class="form-inline">
+            <div id="messageForm" class="form-group">
+                <label for="name">Nickname:</label>
+                <input type="text" id="name" class="form-control" placeholder="Your name">
+                <label for="message">Message:</label>
+                <input type="text" id="message" class="form-control" placeholder="Your message">
+            </div>
+            <br/><br/>
+            <button id="send" class="btn btn-success" type="submit">Send</button>
+        </form>
+    </div>
+    <br/><br/>
+    <div class="row">
+        <table id="response" class="table table-hover">
+            <thead>
+            <tr>
+                <th>Server Response</th>
+            </tr>
+            </thead>
+            <tbody id="feedback" />
+        </table>
+    </div>
+</div>
+</body>
+</html>

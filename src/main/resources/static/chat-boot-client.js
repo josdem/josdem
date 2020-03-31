@@ -3,18 +3,18 @@ function setConnected(connected) {
     $("#connect").prop("disabled", connected);
     $("#disconnect").prop("disabled", !connected);
     if (connected) {
-        $("#helpdesk").show();
+        $("#response").show();
     }
     else {
-        $("#helpdesk").hide();
+        $("#response").hide();
     }
-    $("#feedbacks").html("");
+    $("#feedback").html("");
 }
 
 function connect() {
     ws = new WebSocket('ws://localhost:8080/channel');
     ws.onmessage = function(data){
-        showFeedbacks(data.data);
+        showResponse(data.data);
     }
     setConnected(true);
 }
@@ -28,12 +28,12 @@ function disconnect() {
 }
 
 function sendFormData() {
-    var data = JSON.stringify({'data': $("#name").val() + "," + $("#message").val()})
+    var data = JSON.stringify({'nickname': $("#name").val() ,'message': $("#message").val()})
     ws.send(data);
 }
 
-function showFeedbacks(message) {
-    $("#feedback").append("<tr><td><em> " + message + "</em></td></tr>");
+function showResponse(message) {
+    $("#response").append("<tr><td> " + message + "</td></tr>");
 }
 
 $(function () {
