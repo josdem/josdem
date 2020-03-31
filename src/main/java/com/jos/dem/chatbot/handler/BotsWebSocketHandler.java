@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @Component
-public class HotlineWebSocketHandler implements WebSocketHandler {
+public class BotsWebSocketHandler implements WebSocketHandler {
 
   @Override
   public Mono<Void> handle(WebSocketSession session) {

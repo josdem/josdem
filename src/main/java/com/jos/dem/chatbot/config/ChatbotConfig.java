@@ -1,6 +1,6 @@
 package com.jos.dem.chatbot.config;
 
-import com.jos.dem.chatbot.handler.HotlineWebSocketHandler;
+import com.jos.dem.chatbot.handler.BotsWebSocketHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ChatbotConfig {
 
-  private final HotlineWebSocketHandler webSocketHandler;
+  private final BotsWebSocketHandler webSocketHandler;
 
   @Bean
   public HandlerMapping handlerMapping() {
