@@ -1,6 +1,7 @@
 package com.jos.dem.chatbot.config;
 
 import com.jos.dem.chatbot.handler.BotsWebSocketHandler;
+import com.jos.dem.chatbot.handler.MessagesStreamerHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,12 +18,14 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ChatbotConfig {
 
-  private final BotsWebSocketHandler webSocketHandler;
+  private final BotsWebSocketHandler botsWebSocketHandler;
+  private final MessagesStreamerHandler messagesStreamerHandler;
 
   @Bean
   public HandlerMapping handlerMapping() {
     Map<String, WebSocketHandler> map = new HashMap<>();
-    map.put("/channel", webSocketHandler);
+    map.put("/channel", botsWebSocketHandler);
+    map.put("/messages", messagesStreamerHandler);
 
     SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
     mapping.setOrder(Ordered.HIGHEST_PRECEDENCE);
